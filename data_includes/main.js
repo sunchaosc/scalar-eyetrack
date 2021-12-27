@@ -14,7 +14,7 @@ PreloadZip("https://pcibex.research-zas.de/ibexfiles/scalar/Audio.zip")
 EyeTrackerURL("https://pcibex.research-zas.de/eyegaze/script.php")
 
 // Sequence of the elements in the experiment
-Sequence("WebcamCheck", "ChromeCheck", "L1Check", "Welcome", "Consent", "ProlificID_trial", "WebcamSetUp", "AudioSetUp", "AudioCheck", "Preload", "Instructions", "PractiseSession", "EndOfPractise", "Counter", subsequence(repeat(rshuffle("Exp", "Filler"), 16), "BlinkBreak"),  "QuestionnairePage", "Send", "FinalPage")
+Sequence("WebcamCheck", "ChromeCheck", "L1Check", "Welcome", "Consent", "ProlificID_trial", "Preload", "WebcamSetUp", "AudioSetUp", "AudioCheck",  "Instructions", "PractiseSession", "EndOfPractise", "Counter", subsequence(repeat(rshuffle("Exp", "Filler"), 16), "BlinkBreak"),  "QuestionnairePage", "Send", "FinalPage")
 
 
 // We ask the participants whether they give permission to use the webcam (even though the same question should have been promted by the browser), whether they are on Chrome, and whether they speak English as an L1. If they answer 'no' on any of these questions, they cannot continue to the experiment.
@@ -168,6 +168,9 @@ newTrial("ProlificID_trial",
     )
     .log( "ProlificID" , getVar("ProlificID") )
 
+// Wait if the resources have not finished preloading by the time the tracker is calibrated
+CheckPreloaded("Preload")
+
 // Set up the webcam: we do a first calibration here---meanwhile, the resources are preloading
 newTrial("WebcamSetUp",
     newText("WebcamSetUpText", "The next pages will help you set up the audio and webcam. The webcam will be set up in a simple calibration procedure. During this calibration, you will see a video of your webcam stream. Again, we will not save any recordings of this video stream. Please make sure your face is fully visible, and that you sit centrally in front of your webcam.<br><br>You can start the calibration procedure by clicking on the start button that will appear on the middle of the screen.<br><br>In the calibration procedure, you will see eight buttons on your screen. Please click on all these buttons and follow your cursor closely with your eyes. Once you've clicked on all buttons, a new button will appear in the middle of the screen. Please click on this button and <b>look at it for three seconds</b> so the algorithm can check whether it's well calibrated.<br><br>In case calibration fails, the last step will be repeated. <br><br> Press <b>SPACE</b> to continue to the next trial")
@@ -233,8 +236,8 @@ newTrial("AudioCheck",
 )
     .setOption("hideProgressBar", true)
 
-// Wait if the resources have not finished preloading by the time the tracker is calibrated
-CheckPreloaded("Preload")
+
+
 
 // Experiment instructions:
 newTrial("Instructions",
