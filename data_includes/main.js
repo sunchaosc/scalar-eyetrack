@@ -14,8 +14,10 @@ PreloadZip("https://pcibex.research-zas.de/ibexfiles/scalar/Audio.zip")
 EyeTrackerURL("https://pcibex.research-zas.de/eyegaze/script.php")
 
 // Sequence of the elements in the experiment
-Sequence("WebcamCheck", "ChromeCheck", "L1Check", "Welcome", "Consent", "ProlificID_trial", "Preload", "WebcamSetUp", "AudioSetUp", "AudioCheck",  "Instructions", "PractiseSession", "EndOfPractise", "Counter", subsequence(repeat(rshuffle("Exp", "Filler"), 16), "BlinkBreak"),  "QuestionnairePage", "Send", "FinalPage")
+Sequence("Preload","WebcamCheck", "ChromeCheck", "L1Check", "Welcome", "Consent", "ProlificID_trial",  "WebcamSetUp", "AudioSetUp", "AudioCheck",  "Instructions", "PractiseSession", "EndOfPractise", "Counter", subsequence(repeat(rshuffle("Exp", "Filler"), 16), "BlinkBreak"),  "QuestionnairePage", "Send", "FinalPage")
 
+// Wait if the resources have not finished preloading by the time the tracker is calibrated
+  CheckPreloaded("Preload")
 
 // We ask the participants whether they give permission to use the webcam (even though the same question should have been promted by the browser), whether they are on Chrome, and whether they speak English as an L1. If they answer 'no' on any of these questions, they cannot continue to the experiment.
 newTrial("WebcamCheck",
@@ -168,8 +170,6 @@ newTrial("ProlificID_trial",
     )
     .log( "ProlificID" , getVar("ProlificID") )
 
-// Wait if the resources have not finished preloading by the time the tracker is calibrated
-CheckPreloaded("Preload")
 
 // Set up the webcam: we do a first calibration here---meanwhile, the resources are preloading
 newTrial("WebcamSetUp",
@@ -190,9 +190,8 @@ newTrial("WebcamSetUp",
   .noHeader()
   .setOption("hideProgressBar", true)
 
-
 // Audio set-up
-newTrial("AudioSetUp",
+PennController("AudioSetUp",
     newText("AudioInstructions", "Now that you have set up and calibrated the webcam, let’s set up the audio. In this experiment, you will hear a number of sentences. You can play one of the sentences that will be used in the experiment by clicking the play button below. Please use this audio recording to adjust your volume. Feel free to replay this sentence as often as you need. Once you’re ready, you can go to the next page.")
     ,
     newAudio("Volume_sentence", "prac_arrow_always_green.wav")
