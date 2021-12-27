@@ -332,7 +332,7 @@ Template( "practise.csv" , row =>
             .stop()
         ,
         // Make sure playback is over before moving on
-        getAudio("test").wait("first")
+        getAudio("sentence").wait("first")
         ,
         newTimer(200).start().wait()
         ,
