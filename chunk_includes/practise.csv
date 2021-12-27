@@ -1,0 +1,5 @@
+﻿condition,modal,Sound,TopLeft_loc1,BottomLeft_loc2,TopRight_loc3,BottomRight_loc4,targetloc,comploc,dist1loc,dist2loc,displayID
+prac,usually,arrow_usually_blue.wav,marble_25-75_g-b,marble_100-0_b,wheel_100-0_g,wheel_25-75_g-b,BottomRight,TopRight,TopLeft,BottomLeft,p1
+prac,25,marble_25percent_green.wav,wheel_100-0_g,wheel_25-75_y-g,marble_25-75_g-y,marble_100-0_g,TopRight,BottomRight,BottomLeft,TopLeft,p2
+prac,100,arrow_100percent_yellow.wav,wheel_100-0_b,wheel_100-0_y,marble_25-75_b-y,marble_25-75_y-b,BottomLeft,TopLeft,TopRight,BottomRight,p3
+prac,never,marble_never_green.wav,marble_100-0_b,marble_25-75_b-g,wheel_100-0_g,wheel_25-75_b-g,TopLeft,BottomLeft,TopRight,BottomRight,p4
