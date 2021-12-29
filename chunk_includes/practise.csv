@@ -1,5 +1,5 @@
-﻿condition,modal,Sound,TopLeft_loc1,BottomLeft_loc2,TopRight_loc3,BottomRight_loc4,targetloc,comploc,dist1loc,dist2loc,displayID
-prac,usually,arrow_usually_blue.wav,marble_25-75_g-b.png,marble_100-0_b.png,wheel_100-0_g.png,wheel_25-75_g-b.png,BottomRight,TopRight,TopLeft,BottomLeft,p1
-prac,25,marble_25percent_green.wav,wheel_100-0_g.png,wheel_25-75_y-g.png,marble_25-75_g-y.png,marble_100-0_g.png,TopRight,BottomRight,BottomLeft,TopLeft,p2
-prac,100,arrow_100percent_yellow.wav,wheel_100-0_b.png,wheel_100-0_y.png,marble_25-75_b-y.png,marble_25-75_y-b.png,BottomLeft,TopLeft,TopRight,BottomRight,p3
-prac,never,marble_never_green.wav,marble_100-0_b.png,marble_25-75_b-g.png,wheel_100-0_g.png,wheel_25-75_b-g.png,TopLeft,BottomLeft,TopRight,BottomRight,p4
+﻿condition,modal,Sound,TopLeft_loc1,BottomLeft_loc2,TopRight_loc3,BottomRight_loc4,targetloc,comploc,dist1loc,dist2loc,displayID,list
+prac,usually,arrow_usually_blue.wav,marble_25-75_g-b.png,marble_100-0_b.png,wheel_100-0_g.png,wheel_25-75_g-b.png,BottomRight,TopRight,TopLeft,BottomLeft,p1,0
+prac,25,marble_25percent_green.wav,wheel_100-0_g.png,wheel_25-75_y-g.png,marble_25-75_g-y.png,marble_100-0_g.png,TopRight,BottomRight,BottomLeft,TopLeft,p2,0
+prac,100,arrow_100percent_yellow.wav,wheel_100-0_b.png,wheel_100-0_y.png,marble_25-75_b-y.png,marble_25-75_y-b.png,BottomLeft,TopLeft,TopRight,BottomRight,p3,0
+prac,never,marble_never_green.wav,marble_100-0_b.png,marble_25-75_b-g.png,wheel_100-0_g.png,wheel_25-75_b-g.png,TopLeft,BottomLeft,TopRight,BottomRight,p4,0

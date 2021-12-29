@@ -347,7 +347,7 @@ Template( "practise.csv" , row =>
   .log( "dist1loc"            , row.dist1loc                )
   .log( "dist2loc"            , row.dist2loc                )
   .log( "displayID")          , row.displayID
-  .log( "sentence"            , row.audio                 )
+  .log( "sentence"            , row.Sound                 )
   .log( "modal"               , row.modal          )
   .log( "ExpFiller"           , row.condition    )
   .log( "list"                , row.list                  )
@@ -550,10 +550,10 @@ Template(
   .log( "dist1loc"            , row.dist1loc                )
   .log( "dist2loc"            , row.dist2loc                )
   .log( "displayID")          , row.displayID
-  .log( "sentence"            , row.audio                 )
+  .log( "sentence"            , row.Sound                 )
   .log( "modal"               , row.modal          )
   .log( "ExpFiller"           , row.condition    )
-  .log( "list"                , row.list                  )
+  .log( "list"                , row.group                  )
   .log( "ViewportWidth" 		, window.innerWidth	 		) // Screensize: width
   .log( "ViewportHeight"		, window.innerHeight 		) // Screensize: heigth
 )
