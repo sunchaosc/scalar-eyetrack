@@ -14,9 +14,8 @@ PreloadZip("https://pcibex.research-zas.de/ibexfiles/scalar/Audio.zip")
 // EyeTrackerURL("https://pcibex.research-zas.de/eyegaze/script.php")
 
 // Sequence of the elements in the experiment
-Sequence("Preload","WebcamCheck", "ChromeCheck", "L1Check", "Welcome", "Consent", "ProlificID_trial",  "WebcamSetUp",  "AudioSetUp", "AudioCheck",  "Instructions", "PractiseSession", "EndOfPractise", "Counter", "QuestionnairePage", "Send", "FinalPage")
+Sequence("Preload","WebcamCheck", "ChromeCheck", "L1Check", "Welcome", "Consent", "ProlificID_trial",  "WebcamSetUp",  "AudioSetUp", "AudioCheck",  "Instructions", "PractiseSession", "EndOfPractise", "Counter", subsequence(repeat(randomize("Main"), 16), "BlinkBreak"), "QuestionnairePage", "Send", "FinalPage")
 //
-// subsequence(repeat(rshuffle("Exp", "Filler"), 16), "BlinkBreak"),
 
 // Wait if the resources have not finished preloading by the time the tracker is calibrated
 CheckPreloaded("Preload")
@@ -346,7 +345,7 @@ Template( "practise.csv" , row =>
   .log( "comploc"             , row.comploc                )
   .log( "dist1loc"            , row.dist1loc                )
   .log( "dist2loc"            , row.dist2loc                )
-  .log( "displayID")          , row.displayID
+  .log( "displayID"           , row.displayID)
   .log( "sentence"            , row.Sound                 )
   .log( "modal"               , row.modal          )
   .log( "ExpFiller"           , row.condition    )
@@ -373,11 +372,8 @@ newTrial("EndOfPractise",
 SetCounter("Counter", "inc", 1);
 
 // Trials
-Template(
-    GetTable ("items.csv")
-        .filter("condition", "exp")
-    ,
-    row => newTrial("Exp",
+Template( "items.csv" , row =>
+    newTrial("Main",
         // The callback commands lets us log the X and Y coordinates of the estimated gaze-locations at each recorded moment in time
     newEyeTracker("tracker",1).callback( function (x,y) {
         if (this != getEyeTracker("tracker")._element.elements[0]) return;
@@ -451,91 +447,7 @@ Template(
             .stop()
         ,
         // Make sure playback is over before moving on
-        getAudio("test").wait("first")
-        ,
-        newTimer(200).start().wait()
-        ,
-        fullscreen()
-    )
-    ,
-    GetTable ("items.csv")
-        .filter("condition", "filler")
-    ,
-    row => newTrial("Filler",
-        // The callback commands lets us log the X and Y coordinates of the estimated gaze-locations at each recorded moment in time
-    newEyeTracker("tracker",1).callback( function (x,y) {
-        if (this != getEyeTracker("tracker")._element.elements[0]) return;
-        getEyeTracker("tracker")._element.counts._Xs.push(x);
-        getEyeTracker("tracker")._element.counts._Ys.push(y);
-        })
-    ,
-    newFunction(()=>{
-        getEyeTracker("tracker")._element.counts._Xs = [];
-        getEyeTracker("tracker")._element.counts._Ys = [];
-    }).call()
-,
-        // Check/recalibrate the tracker before every trial
-        getEyeTracker("tracker")
-            .calibrate(50)  // Make sure that the tracker is still calibrated
-            .log()  // log the calibration scores
-        ,
-        // We will print four character-card pairs of images, one on each quadrant of the page
-        // The images are 20%-width x 20%-height of the page, but each pair is contained
-        // in a 40% Canvas so as to capture slightly-off gazes
-        defaultImage.size("20vh", "20vh")
-        ,
-        newCanvas("TopLeft", "50vw", "50vh")
-            .add( "center at 50%" , "middle at 50%" , newImage(row.TopLeft_loc1) )
-            .print( "center at 25%" , "middle at 25%" )
-        ,
-        newCanvas("BottomLeft", "50vw", "50vh")
-            .add( "center at 50%" , "middle at 50%" , newImage(row.BottomLeft_loc2) )
-            .print( "center at 25%" , "middle at 75%" )
-        ,
-        newCanvas("TopRight", "50vw", "50vh")
-            .add( "center at 50%" , "middle at 50%" , newImage(row.TopRight_loc3) )
-            .print( "center at 75%" , "middle at 25%" )
-        ,
-        newCanvas("BottomRight", "50vw", "50vh")
-            .add( "center at 50%" , "middle at 50%" , newImage(row.BottomRight_loc4) )
-            .print( "center at 75%" , "middle at 75%" )
-        ,
-        getEyeTracker("tracker")
-            .add(   // We track the Canvas elements
-                getCanvas("TopLeft"),
-                getCanvas("BottomLeft"),
-                getCanvas("TopRight"),
-                getCanvas("BottomRight")
-            )
-            .log()  // If this line is missing, the eye-tracking data won't be sent to the server
-            .start()
-        ,
-        newTimer(500)
-            .start()
-            .wait()
-        ,
-        newAudio("sentence", row.Sound)
-            .log()
-            .play()
-        ,
-        // Wait for a click on one of the four Canvas elements
-        newSelector("answer")
-            .add(
-              getCanvas("TopLeft"),
-              getCanvas("BottomLeft"),
-              getCanvas("TopRight"),
-              getCanvas("BottomRight")
-            )
-            .once()
-            .log()
-            .wait()
-        ,
-        // Stop now to prevent collecting unnecessary data
-        getEyeTracker("tracker")
-            .stop()
-        ,
-        // Make sure playback is over before moving on
-        getAudio("test").wait("first")
+        getAudio("sentence").wait("first")
         ,
         newTimer(200).start().wait()
         ,
@@ -543,19 +455,19 @@ Template(
     )
   .setOption("hideProgressBar", true)
   .noHeader()
-  .log("Subject"              , getVar("Subject")         )
-  .log( "ProlificID"          , getVar("ProlificID")      )
-  .log( "targetloc"           , row.targetloc                )
-  .log( "comploc"             , row.comploc                )
-  .log( "dist1loc"            , row.dist1loc                )
-  .log( "dist2loc"            , row.dist2loc                )
-  .log( "displayID")          , row.displayID
-  .log( "sentence"            , row.Sound                 )
-  .log( "modal"               , row.modal          )
-  .log( "ExpFiller"           , row.condition    )
-  .log( "list"                , row.group                  )
-  .log( "ViewportWidth" 		, window.innerWidth	 		) // Screensize: width
-  .log( "ViewportHeight"		, window.innerHeight 		) // Screensize: heigth
+    .log( "Subject", getVar( "Subject" ) )
+  	.log( "ProlificID", getVar( "ProlificID" ) )
+  	.log( "targetloc", row.targetloc )
+  	.log( "comploc", row.comploc )
+  	.log( "dist1loc", row.dist1loc )
+  	.log( "dist2loc", row.dist2loc )
+  	.log( "displayID", row.displayID )
+  	.log( "sentence", row.Sound )
+  	.log( "modal", row.modal )
+  	.log( "ExpFiller", row.condition )
+  	.log( "list", row.group )
+  	.log( "ViewportWidth", window.innerWidth ) // Screensize: width
+  	.log( "ViewportHeight", window.innerHeight )// Screensize: heigth
 )
 
 // Break between the blocks
@@ -579,7 +491,8 @@ newTrial("BlinkBreak",
 newTrial("QuestionnairePage",
     newHtml("Questionnaire", "questionnaire.html")
         .settings.log()
-        .print()
+      	.cssContainer( {"width": "720px"} )
+      	.print()
     ,
     newButton("continue", "Continue")
         .center()

@@ -16,10 +16,13 @@
 <table>
 <tr>
   <td>Did you wear glasses during this experment? </td><td>
-    <input name="Glasses" type="radio" value="Yes"   id="cYes" />
+    <input name="Glasses" type="radio" value="Yes" class="obligatory"   id="cYes" />
     <label for="cYes">Yes </label>
-    <input name="Glasses" type="radio" value="No" id="cNo"/>
+    <input name="Glasses" type="radio" value="No" class="obligatory"  id="cNo"/>
     <label for="cNo">No </label>
+</tr>
+<tr>
+<td colspan="2"><label class="error" for="Glasses"></label></td>
 </tr>
 </table>
 
@@ -27,10 +30,13 @@
 <table>
 <tr>
   <td>Did you use a built-in webcam (e.g., in a laptop or an iMac) or a standalone webcam? </td><td>
-    <input name="Webcam" type="radio" value="Built-in"   id="cBuilt-in" />
+    <input name="Webcam" type="radio" value="Built-in"  class="obligatory"   id="cBuilt-in" />
     <label for="cBuilt-in">Built-in </label>
-    <input name="Webcam" type="radio" value="Standalone" id="cStandalone"/>
+    <input name="Webcam" type="radio" value="Standalone" class="obligatory"  id="cStandalone"/>
     <label for="cStandalone">Standalone </label>
+</tr>
+<tr>
+<td colspan="2"><label class="error" for="Webcam"></label></td>
 </tr>
 </table>
 
