@@ -14,12 +14,12 @@ PreloadZip("https://pcibex.research-zas.de/ibexfiles/scalar/Audio.zip")
 // EyeTrackerURL("https://pcibex.research-zas.de/eyegaze/script.php")
 
 // Sequence of the elements in the experiment
-Sequence("Preload","WebcamCheck", "ChromeCheck", "L1Check", "Welcome", "Consent", "ProlificID_trial",  "WebcamSetUp",   "Instructions", "PractiseSession", "EndOfPractise",   "QuestionnairePage", "Send", "FinalPage")
-// "AudioSetUp", "AudioCheck",
-// "Counter", subsequence(repeat(rshuffle("Exp", "Filler"), 16), "BlinkBreak"),
+Sequence("Preload","WebcamCheck", "ChromeCheck", "L1Check", "Welcome", "Consent", "ProlificID_trial",  "WebcamSetUp",  "AudioSetUp", "AudioCheck",  "Instructions", "PractiseSession", "EndOfPractise", "Counter", "QuestionnairePage", "Send", "FinalPage")
+//
+// subsequence(repeat(rshuffle("Exp", "Filler"), 16), "BlinkBreak"),
 
 // Wait if the resources have not finished preloading by the time the tracker is calibrated
-  CheckPreloaded("Preload")
+CheckPreloaded("Preload")
 
 // We ask the participants whether they give permission to use the webcam (even though the same question should have been promted by the browser), whether they are on Chrome, and whether they speak English as an L1. If they answer 'no' on any of these questions, they cannot continue to the experiment.
 newTrial("WebcamCheck",
@@ -193,7 +193,7 @@ newTrial("WebcamSetUp",
   .setOption("hideProgressBar", true)
 
 // Audio set-up
-PennController("AudioSetUp",
+newTrial("AudioSetUp",
     newText("AudioInstructions", "Now that you have set up and calibrated the webcam, let’s set up the audio. In this experiment, you will hear a number of sentences. You can play one of the sentences that will be used in the experiment by clicking the play button below. Please use this audio recording to adjust your volume. Feel free to replay this sentence as often as you need. Once you’re ready, you can go to the next page.")
     ,
     newAudio("Volume_sentence", "prac_arrow_always_green.wav")
@@ -338,7 +338,7 @@ Template( "practise.csv" , row =>
         ,
         fullscreen()
     )
-    .setOption("hideProgressBar", true)
+  .setOption("hideProgressBar", true)
   .noHeader()
   .log("Subject"              , getVar("Subject")         )
   .log( "ProlificID"          , getVar("ProlificID")      )
