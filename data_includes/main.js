@@ -11,7 +11,7 @@ PreloadZip("https://pcibex.research-zas.de/ibexfiles/scalar/Audio.zip")
 
 // Replace the URL with one that points to a PHP script that you uploaded to your webserver
 // see: https://doc.pcibex.net/how-to-guides/collecting-eyetracking-data/#php-script
-// EyeTrackerURL("https://pcibex.research-zas.de/eyegaze/script.php")
+EyeTrackerURL("https://pcibex.research-zas.de/eyegaze/script.php")
 
 // Sequence of the elements in the experiment
 Sequence("Preload","WebcamCheck", "ChromeCheck", "L1Check", "Welcome", "Consent", "ProlificID_trial",  "WebcamSetUp",  "AudioSetUp", "AudioCheck",  "Instructions", "PractiseSession", "EndOfPractise", "Counter", subsequence(repeat(randomize("Main"), 16), "BlinkBreak"), "QuestionnairePage", "Send", "FinalPage")
@@ -128,6 +128,8 @@ newTrial("Welcome",
     ,
     newKey("next", " ")
         .wait()
+    ,
+    fullscreen()
 )
 .setOption("hideProgressBar", true)
 
@@ -145,8 +147,6 @@ newTrial("Consent",
         .wait(getHtml("consent_form").test.complete()
                   .failure(getHtml("consent_form").warn())
         )
-    ,
-    fullscreen()
 )
 .setOption("hideProgressBar", true)
 
@@ -241,7 +241,7 @@ newTrial("AudioCheck",
 
 // Experiment instructions:
 newTrial("Instructions",
-    newText("TaskInstructions", "<p>You're all set to start the experiment! You will hear a couple of short sentences while you look at the screen. Feel free to look anywhere, as long as it's on the screen.<br><br>Before each trial, you will see a button in the middle of your screen. Click on this button and look at it for three seconds. The webcam will check whether it is still calibrated. If it is, the trial will automatically start after three seconds. Otherwise, the calibration procedure will be repeated. <br><br>For each trial, your task is to click on the image that the sentence is referring to. <br><br>We’ll first start with four practice trials, so you will know how the experiment works. Then, we will continue to the experiment. This experiment should take roughly 20 minutes to complete, and there will be a break in the middle.<br><br>Please make sure you keep your head as still as possible throughout the experiment (of course, with the exception of the break)")
+    newText("TaskInstructions", "<p>You're all set to start the experiment! You will hear a couple of short sentences while you look at the screen. Feel free to look anywhere, as long as it's on the screen.<br><br>Before each trial, you will see a button in the middle of your screen. Click on this button and look at it for three seconds. The webcam will check whether it is still calibrated. If it is, the trial will automatically start after three seconds. Otherwise, the calibration procedure will be repeated. <br><br>For each trial, your task is to click on the image that the sentence is referring to. <br><br>We’ll first start with four practice trials, so you will know how the experiment works. Then, we will continue to the experiment. This experiment should take roughly 20 minutes to complete, and there will be a break in the middle.<br><br>Please make sure you keep your head as still as possible throughout the experiment. (of course, with the exception of the break)")
     ,
     newCanvas("myCanvas", 800 , 300)
         .settings.add(0,0, getText("TaskInstructions"))
@@ -508,7 +508,8 @@ SendResults()
 newTrial("FinalPage",
     exitFullscreen()
     ,
-    newText("Final","This is the end of the experiment. <strong> Please verify your participation on Prolific by clicking on this link: <p><a href='https://app.prolific.co/submissions/complete?cc=4E2A5428'>https://app.prolific.co/submissions/complete?cc=4E2A5428</a></p> </strong> <br> Thank you for your participation!")
+    newText("Final","This is the end of the experiment. <strong> Please verify your participation on Prolific by clicking on this link:  </strong> <br> Thank you for your participation!")
+    // <p><a href='https://app.prolific.co/submissions/complete?cc=4E2A5428'>https://app.prolific.co/submissions/complete?cc=4E2A5428</a></p>
     ,
     newCanvas("myCanvas", "60vw" , "60vh")
         .settings.add(0,0, getText("Final"))
