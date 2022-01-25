@@ -508,6 +508,10 @@ SendResults()
 newTrial("FinalPage",
     exitFullscreen()
     ,
+    newText("Information", "You can download a copy of the information sheet by clicking on this link:
+    <a href='https://pcibex.research-zas.de/ibexfiles/scalar/online_adult_behavior.pdf' target='_blank'>Information sheet</a>)
+    ,
+    
     newText("Final","This is the end of the experiment. <strong> Please verify your participation on Prolific by clicking on this link:  </strong> <br> Thank you for your participation!")
     // <p><a href='https://app.prolific.co/submissions/complete?cc=4E2A5428'>https://app.prolific.co/submissions/complete?cc=4E2A5428</a></p>
     ,
