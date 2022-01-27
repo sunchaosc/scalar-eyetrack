@@ -6,11 +6,25 @@
 
 <table>
 <tr>
-  <td>What is your age?</td><td><input name="Age" type="text" size="30" class="obligatory" /></td>
-</tr>
+        <td>Age:</td>
+        <td><input name="Age" type="text" size="35" class="obligatory"></td>
+    </tr>
+    <tr>
+        <td colspan="2"><label class="error" for="Age"></label></td>
+    </tr>
+    <tr><td><br></td></tr>
+
 <tr>
-<td colspan="2"><label class="error" for="Age"></label></td>
-</tr>
+        <td style="vertical-align:top">Sex:</td>
+        <td style="vertical-align:top">
+            <input name="Gender" type="radio" value="female" class="obligatory" id="csexfemale" /><label for="csexfemale"> female</label><br>
+            <input name="Gender" type="radio" value="male" class="obligatory" id="csexmale"/><label for="csexmale"> male</label><br>
+            <input name="Gender" type="radio" value="diverse" class="obligatory" id="csexother"/><label for="csexother"> diverse</label>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"><label class="error" for="Sex"></label></td>
+    </tr>
 
 
 <table>
