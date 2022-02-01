@@ -17,7 +17,7 @@
 1,exp,usually,arrow_usually_green.wav,marble_100-0_g.png,marble_25-75_g-y.png,wheel_25-75_y-g.png,wheel_100-0_y.png,RT,RB,LB,LT,20
 1,filler,0,marble_0percent_green.wav,marble_100-0_b.png,marble_25-75_b-g.png,wheel_100-0_g.png,wheel_25-75_g-b.png,LT,LB,RT,RB,3
 1,filler,0,arrow_0percent_blue.wav,wheel_25-75_y-b.png,wheel_100-0_y.png,marble_100-0_y.png,marble_25-75_y-b.png,LB,LT,RT,RB,10
-1,filler,0,arrow_0percent_yellow.wav,marble_25-75_g-y.png,marble_25-75_y-g.png,wheel_100-0_g.png,whee_100-0_y.png,RT,RB,LB,LT,25
+1,filler,0,arrow_0percent_yellow.wav,marble_25-75_g-y.png,marble_25-75_y-g.png,wheel_100-0_g.png,wheel_100-0_y.png,RT,RB,LB,LT,25
 1,filler,0,marble_0percent_green.wav,marble_100-0_b.png,marble_100-0_g.png,wheel_25-75_b-g.png,wheel_25-75_g-b.png,LT,LB,RT,RB,26
 1,filler,25,arrow_25percent_blue.wav,marble_25-75_b-y.png,marble_100-0_b.png,wheel_100-0_b.png,wheel_25-75_b-y.png,RB,RT,LT,LB,16
 1,filler,25,marble_25percent_yellow.wav,wheel_100-0_b.png,wheel_25-75_b-y.png,marble_25-75_y-b.png,marble_100-0_y.png,RT,RB,LB,LT,23
@@ -49,7 +49,7 @@
 2,exp,usually,arrow_usually_yellow.wav,marble_100-0_y.png,marble_25-75_y-b.png,wheel_25-75_b-y.png,wheel_100-0_b.png,RT,RB,LB,LT,24
 2,filler,0,marble_0percent_green.wav,marble_100-0_b.png,marble_25-75_b-g.png,wheel_100-0_g.png,wheel_25-75_g-b.png,LT,LB,RT,RB,3
 2,filler,0,arrow_0percent_blue.wav,wheel_25-75_y-b.png,wheel_100-0_y.png,marble_100-0_y.png,marble_25-75_y-b.png,LB,LT,RT,RB,10
-2,filler,0,arrow_0percent_yellow.wav,marble_25-75_g-y.png,marble_25-75_y-g.png,wheel_100-0_g.png,whee_100-0_y.png,RT,RB,LB,LT,25
+2,filler,0,arrow_0percent_yellow.wav,marble_25-75_g-y.png,marble_25-75_y-g.png,wheel_100-0_g.png,wheel_100-0_y.png,RT,RB,LB,LT,25
 2,filler,0,marble_0percent_green.wav,marble_100-0_b.png,marble_100-0_g.png,wheel_25-75_b-g.png,wheel_25-75_g-b.png,LT,LB,RT,RB,26
 2,filler,25,arrow_25percent_blue.wav,marble_25-75_b-y.png,marble_100-0_b.png,wheel_100-0_b.png,wheel_25-75_b-y.png,RB,RT,LT,LB,16
 2,filler,25,marble_25percent_yellow.wav,wheel_100-0_b.png,wheel_25-75_b-y.png,marble_25-75_y-b.png,marble_100-0_y.png,RT,RB,LB,LT,23
@@ -81,7 +81,7 @@
 3,exp,usually,arrow_usually_green.wav,marble_25-75_b-g.png,marble_100-0_b.png,wheel_25-75_b-g.png,wheel_100-0_b.png,RT,RB,LT,LB,14
 3,filler,0,marble_0percent_green.wav,marble_100-0_b.png,marble_25-75_b-g.png,wheel_100-0_g.png,wheel_25-75_g-b.png,LT,LB,RT,RB,3
 3,filler,0,arrow_0percent_blue.wav,wheel_25-75_y-b.png,wheel_100-0_y.png,marble_100-0_y.png,marble_25-75_y-b.png,LB,LT,RT,RB,10
-3,filler,0,arrow_0percent_yellow.wav,marble_25-75_g-y.png,marble_25-75_y-g.png,wheel_100-0_g.png,whee_100-0_y.png,RT,RB,LB,LT,25
+3,filler,0,arrow_0percent_yellow.wav,marble_25-75_g-y.png,marble_25-75_y-g.png,wheel_100-0_g.png,wheel_100-0_y.png,RT,RB,LB,LT,25
 3,filler,0,marble_0percent_green.wav,marble_100-0_b.png,marble_100-0_g.png,wheel_25-75_b-g.png,wheel_25-75_g-b.png,LT,LB,RT,RB,26
 3,filler,25,arrow_25percent_blue.wav,marble_25-75_b-y.png,marble_100-0_b.png,wheel_100-0_b.png,wheel_25-75_b-y.png,RB,RT,LT,LB,16
 3,filler,25,marble_25percent_yellow.wav,wheel_100-0_b.png,wheel_25-75_b-y.png,marble_25-75_y-b.png,marble_100-0_y.png,RT,RB,LB,LT,23
@@ -113,7 +113,7 @@
 4,exp,usually,arrow_usually_yellow.wav,marble_100-0_g.png,marble_25-75_g-y.png,wheel_100-0_g.png,wheel_25-75_g-y.png,RB,RT,LB,LT,22
 4,filler,0,marble_0percent_green.wav,marble_100-0_b.png,marble_25-75_b-g.png,wheel_100-0_g.png,wheel_25-75_g-b.png,LT,LB,RT,RB,3
 4,filler,0,arrow_0percent_blue.wav,wheel_25-75_y-b.png,wheel_100-0_y.png,marble_100-0_y.png,marble_25-75_y-b.png,LB,LT,RT,RB,10
-4,filler,0,arrow_0percent_yellow.wav,marble_25-75_g-y.png,marble_25-75_y-g.png,wheel_100-0_g.png,whee_100-0_y.png,RT,RB,LB,LT,25
+4,filler,0,arrow_0percent_yellow.wav,marble_25-75_g-y.png,marble_25-75_y-g.png,wheel_100-0_g.png,wheel_100-0_y.png,RT,RB,LB,LT,25
 4,filler,0,marble_0percent_green.wav,marble_100-0_b.png,marble_100-0_g.png,wheel_25-75_b-g.png,wheel_25-75_g-b.png,LT,LB,RT,RB,26
 4,filler,25,arrow_25percent_blue.wav,marble_25-75_b-y.png,marble_100-0_b.png,wheel_100-0_b.png,wheel_25-75_b-y.png,RB,RT,LT,LB,16
 4,filler,25,marble_25percent_yellow.wav,wheel_100-0_b.png,wheel_25-75_b-y.png,marble_25-75_y-b.png,marble_100-0_y.png,RT,RB,LB,LT,23
