@@ -21,36 +21,36 @@ Sequence("Preload","WebcamCheck", "ChromeCheck", "L1Check", "Welcome", "Consent"
 CheckPreloaded("Preload")
 
 // We ask the participants whether they give permission to use the webcam (even though the same question should have been promted by the browser), whether they are on Chrome, and whether they speak English as an L1. If they answer 'no' on any of these questions, they cannot continue to the experiment.
-// newTrial("WebcamCheck",
-//     newText("PermissionWebcam", "Three brief questions before we begin:<br><br>We need to use your webcam to record where you are looking on the screen. We will <b>not</b> record any video or collect any other type of data that may reveal your identity. Do you give us permission to use your webcam?")
-//     ,
-//     newText("NoPermission", "No, I do not give my permission<br>Press the 'J' key")
-//     ,
-//     newText("YesPermission", "Yes, I give my permission,<br>Press the 'F' key")
-//     ,
-//     newCanvas("ChecksCanvas", "60vw" , "20vh")
-//         .add("center at 50%", "top at 10%", getText("PermissionWebcam"))
-//         .add("center at 20%", "top at 80%", getText("YesPermission"))
-//         .add("center at 80%", "top at 80%", getText("NoPermission"))
-//         .print("center at 50%", "top at 25%")
-//     ,
-//     newKey("yesno", "FJ")
-//         .wait()
-//     ,
-//     getKey("yesno")
-//         .test.pressed("F")
-//         .failure(
-//             getCanvas("ChecksCanvas")
-//                 .remove()
-//             ,
-//             newCanvas("NoPermision", "60vw" , "20vh")
-//                 .add("center at 50%", "top at 10%", newText("Unfortunately you cannot participate in this study. Please close the experiment by closing the browser (you can ignore possible pop-up screens)"))
-//                 .print("center at 50%", "top at 25%")
-//             ,
-//             newButton("waitforever")
-//                 .wait()
-//         )
-// )
+newTrial("WebcamCheck",
+    newText("PermissionWebcam", "Three brief questions before we begin:<br><br>We need to use your webcam to record where you are looking on the screen. We will <b>not</b> record any video or collect any other type of data that may reveal your identity. Do you give us permission to use your webcam?")
+    ,
+    newText("NoPermission", "No, I do not give my permission<br>Press the 'J' key")
+    ,
+    newText("YesPermission", "Yes, I give my permission,<br>Press the 'F' key")
+    ,
+    newCanvas("ChecksCanvas", "60vw" , "20vh")
+        .add("center at 50%", "top at 10%", getText("PermissionWebcam"))
+        .add("center at 20%", "top at 80%", getText("YesPermission"))
+        .add("center at 80%", "top at 80%", getText("NoPermission"))
+        .print("center at 50%", "top at 25%")
+    ,
+    newKey("yesno", "FJ")
+        .wait()
+    ,
+    getKey("yesno")
+        .test.pressed("F")
+        .failure(
+            getCanvas("ChecksCanvas")
+                .remove()
+            ,
+            newCanvas("NoPermision", "60vw" , "20vh")
+                .add("center at 50%", "top at 10%", newText("Unfortunately you cannot participate in this study. Please close the experiment by closing the browser (you can ignore possible pop-up screens)"))
+                .print("center at 50%", "top at 25%")
+            ,
+            newButton("waitforever")
+                .wait()
+        )
+)
 
 newTrial("ChromeCheck",
     newText("ChromeCheckText", "Three brief questions before we begin:<br><br>This study only works well if you are using the Google Chrome browser on a laptop or desktop computer (so not on a mobile phone or tablet). Are you currently using <b> Google Chrome Desktop </b>?")
