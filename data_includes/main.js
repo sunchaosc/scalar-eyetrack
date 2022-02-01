@@ -14,7 +14,7 @@ PreloadZip("https://pcibex.research-zas.de/ibexfiles/scalar/Audio.zip")
 EyeTrackerURL("https://pcibex.research-zas.de/eyegaze/script.php")
 
 // Sequence of the elements in the experiment
-Sequence("Preload","WebcamCheck", "ChromeCheck", "L1Check", "Welcome", "Consent", "ProlificID_trial",  "WebcamSetUp",  "AudioSetUp", "AudioCheck",  "Instructions", "PractiseSession", "EndOfPractise", "Counter", subsequence(repeat(randomize("Main"), 16), "BlinkBreak"), "QuestionnairePage", "Send", "FinalPage")
+Sequence("Preload","WebcamCheck", "ChromeCheck", "L1Check", "Welcome", "Consent", "WebcamSetUp",  "AudioSetUp", "AudioCheck",  "Instructions", "PractiseSession", "EndOfPractise", "Counter", subsequence(repeat(randomize("Main"), 16), "BlinkBreak"), "QuestionnairePage", "Send", "FinalPage")
 //
 
 // Wait if the resources have not finished preloading by the time the tracker is calibrated
@@ -306,7 +306,7 @@ Template( "practise.csv" , row =>
             .log()  // If this line is missing, the eye-tracking data won't be sent to the server
             .start()
         ,
-        newTimer(2000)
+        newTimer("preview1",2000)
             .start()
             .wait()
         ,
@@ -333,14 +333,14 @@ Template( "practise.csv" , row =>
         // Make sure playback is over before moving on
         getAudio("sentence").wait("first")
         ,
-        newTimer(200).start().wait()
+        newTimer("next1",200).start().wait()
         ,
         fullscreen()
     )
   .setOption("hideProgressBar", true)
   .noHeader()
   .log("Subject"              , getVar("Subject")         )
-  .log( "ProlificID"          , getVar("ProlificID")      )
+  // .log( "ProlificID"          , getVar("ProlificID")      )
   .log( "targetloc"           , row.targetloc                )
   .log( "comploc"             , row.comploc                )
   .log( "dist1loc"            , row.dist1loc                )
@@ -422,7 +422,7 @@ Template( "items.csv" , row =>
             .log()  // If this line is missing, the eye-tracking data won't be sent to the server
             .start()
         ,
-        newTimer(2000)
+        newTimer("preview2", 2000)
             .start()
             .wait()
         ,
@@ -449,14 +449,14 @@ Template( "items.csv" , row =>
         // Make sure playback is over before moving on
         getAudio("sentence").wait("first")
         ,
-        newTimer(200).start().wait()
+        newTimer("next2",200).start().wait()
         ,
         fullscreen()
     )
   .setOption("hideProgressBar", true)
   .noHeader()
     .log( "Subject", getVar( "Subject" ) )
-  	.log( "ProlificID", getVar( "ProlificID" ) )
+  	// .log( "ProlificID", getVar( "ProlificID" ) )
   	.log( "targetloc", row.targetloc )
   	.log( "comploc", row.comploc )
   	.log( "dist1loc", row.dist1loc )
