@@ -14,7 +14,7 @@ PreloadZip("https://pcibex.research-zas.de/ibexfiles/scalar/Audio.zip")
 EyeTrackerURL("https://pcibex.research-zas.de/eyegaze/script.php")
 
 // Sequence of the elements in the experiment
-Sequence("Preload","WebcamCheck", "ChromeCheck", "L1Check", "Welcome", "Consent", "WebcamSetUp",  "AudioSetUp", "AudioCheck",  "Instructions", "PractiseSession", "EndOfPractise", "Counter", subsequence(repeat(randomize("Main"), 16), "BlinkBreak"), "QuestionnairePage", "Send", "FinalPage")
+Sequence("Preload","WebcamCheck", "ChromeCheck", "L1Check", "Welcome", "Consent",  "AudioSetUp", "AudioCheck", "WebcamSetUp", "Instructions", "PractiseSession", "EndOfPractise", "Counter", subsequence(repeat(randomize("Main"), 16), "BlinkBreak"), "QuestionnairePage", "Send", "FinalPage")
 //
 
 // Wait if the resources have not finished preloading by the time the tracker is calibrated
@@ -172,28 +172,9 @@ newTrial("Consent",
 //     .log( "ProlificID" , getVar("ProlificID") )
 
 
-// Set up the webcam: we do a first calibration here---meanwhile, the resources are preloading
-newTrial("WebcamSetUp",
-    newText("WebcamSetUpText", "The next pages will help you set up the audio and webcam. The webcam will be set up in a simple calibration procedure. During this calibration, you will see a video of your webcam stream. Again, we will not save any recordings of this video stream. Please make sure your face is fully visible, and that you sit centrally in front of your webcam.<br><br>You can start the calibration procedure by clicking on the start button that will appear on the middle of the screen.<br><br>In the calibration procedure, you will see eight buttons on your screen. Please click on all these buttons and follow your cursor closely with your eyes. Once you've clicked on all buttons, a new button will appear in the middle of the screen. Please click on this button and <b>look at it for three seconds</b> so the algorithm can check whether it's well calibrated.<br><br>In case calibration fails, the last step will be repeated. <br><br> Press <b>SPACE</b> to continue.")
-        .center()
-        .print()
-    ,
-    newKey("next", " ")
-        .wait( newEyeTracker("tracker").test.ready())
-    ,
-    fullscreen()
-    ,
-    // Start calibrating the eye-tracker, allow for up to 3 attempts
-    // 50 means that calibration succeeds when 50% of the estimates match the click coordinates
-    // Increase the threshold for better accuracy, but more risks of losing participants
-    getEyeTracker("tracker").calibrate(50)
-  )
-  .noHeader()
-  .setOption("hideProgressBar", true)
-
 // Audio set-up
 newTrial("AudioSetUp",
-    newText("AudioInstructions", "Now that you have set up and calibrated the webcam, let’s set up the audio. In this experiment, you will hear a number of sentences. You can play one of the sentences that will be used in the experiment by clicking the play button below. Please use this audio recording to adjust your volume. Feel free to replay this sentence as often as you need. Once you’re ready, you can go to the next page.")
+    newText("AudioInstructions", "The next pages will help you set up the audio and webcam. In this experiment, you will hear a number of sentences. You can play one of the sentences that will be used in the experiment by clicking the play button below. Please use this audio recording to adjust your volume. Feel free to replay this sentence as often as you need. Once you’re ready, you can go to the next page.")
     ,
     newAudio("Volume_sentence", "prac_arrow_0percent_blue.wav")
     ,
@@ -236,7 +217,24 @@ newTrial("AudioCheck",
 )
     .setOption("hideProgressBar", true)
 //
-//
+// Set up the webcam: we do a first calibration here---meanwhile, the resources are preloading
+newTrial("WebcamSetUp",
+    newText("WebcamSetUpText", "Now that you have set up audio. let’s set up and calibrated the webcam. The webcam will be set up in a simple calibration procedure. During this calibration, you will see a video of your webcam stream. Again, we will not save any recordings of this video stream. Please make sure your face is fully visible, and that you sit centrally in front of your webcam.<br><br>You can start the calibration procedure by clicking on the start button that will appear on the middle of the screen.<br><br>In the calibration procedure, you will see eight buttons on your screen. Please click on all these buttons and follow your cursor closely with your eyes. Once you've clicked on all buttons, a new button will appear in the middle of the screen. Please click on this button and <b>look at it for three seconds</b> so the algorithm can check whether it's well calibrated.<br><br>In case calibration fails, the last step will be repeated. <br><br> Press <b>SPACE</b> to continue.")
+        .center()
+        .print()
+    ,
+    newKey("next", " ")
+        .wait( newEyeTracker("tracker").test.ready())
+    ,
+    fullscreen()
+    ,
+    // Start calibrating the eye-tracker, allow for up to 3 attempts
+    // 50 means that calibration succeeds when 50% of the estimates match the click coordinates
+    // Increase the threshold for better accuracy, but more risks of losing participants
+    getEyeTracker("tracker").calibrate(50)
+  )
+  .noHeader()
+  .setOption("hideProgressBar", true)
 //
 
 // Experiment instructions:
