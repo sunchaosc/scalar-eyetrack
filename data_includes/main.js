@@ -502,13 +502,13 @@ newTrial("QuestionnairePage",
         )
 )
 
-SendResults()
+SendResults("Send")
 
 // Final page
 newTrial("FinalPage",
     exitFullscreen()
     ,
-    newText("Final","<p>You can download a copy of the information sheet by clicking on this link:<a href='https://pcibex.research-zas.de/ibexfiles/scalar/online_adult_behavior.pdf' target='_blank' > Information sheet</a></p> <p><br> This is the end of the experiment. <strong> Please verify your participation on Prolific by clicking on this link: <a href='https://app.prolific.co/submissions/complete?cc=581E4C1E' target='_blank'>Click here to confirm your participation on Prolific.</a></strong></p> <p>This is a necessary step in order for you to receive participation credit!</p> <br> Thank you for your participation!</p>")
+    newText("Final","<p>You can download a copy of the information sheet by clicking on this link:<a href='https://pcibex.research-zas.de/ibexfiles/scalar/online_adult_behavior.pdf' target='_blank' > Information sheet</a></p> <p><br> This is the end of the experiment. <strong> Please verify your participation on Prolific by clicking on this link: <a href='https://app.prolific.co/submissions/complete?cc=581E4C1E'>Click here to confirm your participation on Prolific.</a></strong></p> <p>This is a necessary step in order for you to receive participation credit!</p> <br> Thank you for your participation!</p>")
    ,
     // newText("<p><a href='https://app.prolific.co/submissions/complete?cc=CODE'+ GetURLParameter("id")+"' target='_blank'>Click here to confirm your participation on Prolific.</a></p> <p>This is a necessary step in order for you to receive participation credit!</p>"),
 
