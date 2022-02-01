@@ -53,7 +53,7 @@ newTrial("WebcamCheck",
 )
 
 newTrial("ChromeCheck",
-    newText("ChromeCheckText", "Three brief questions before we begin:<br><br>This study only works well if you are using the Google Chrome browser on a laptop or desktop computer (so not on a mobile phone or tablet). Are you currently using <b> Google Chrome Desktop </b>?")
+    newText("ChromeCheckText", "Three brief questions before we begin:<br><br>This study only works if you are using the Google Chrome browser on a laptop or desktop computer (so not on a mobile phone or tablet). Are you currently using <b> Google Chrome Desktop </b>?")
     ,
     newText("NoChrome", "No, I am using another browser/device<br>Press the 'J' key")
     ,
@@ -120,7 +120,7 @@ newTrial("Welcome",
         .global()
         .log()
     ,
-    newText("WelcomeText", "Welcome and thank you for participating in this experiment.<br><br>The task is very simple and should take roughly 20 minutes to complete (there will be a break in the middle). You will listen to short sentences while four images are presented on your computer screen. After each sentence, you need to click on the image that the sentence is referring to. Feel free to look anywhere, as long as it is on your computer screen. Your webcam will be used to follow your eye movements on the task. <br><br>We will <b>not</b> collect any video data or any other type of data that may reveal your identity. We only collect data on where on the screen your eyes are looking during the experiment.<br><br>It is important that you are in a well-lit and quiet environment, otherwise the webcam may not be able to pick up your eye movements. Please turn off any music you may have on and turn off devices or applications that may distract you during this task (such as your mobile phone, your email application) and please close other websites that you may have open.<br><br>The next pages will appear in fullscreen. <b>Please do not close the fullscreen for the remainder of this experiment.</b> <br><br>Press <b>SPACE</b> to continue.")
+    newText("WelcomeText", "Welcome and thank you for participating in this experiment.<br><br>The task is very simple and should take roughly 20 minutes to complete (there will be a break in the middle). You will listen to short sentences while four images are presented on your computer screen. After each sentence, you need to click on the image that the sentence is referring to. Feel free to look anywhere, as long as it is on your computer screen. Your webcam will be used to follow your eye movements on the task. <br><br>It is important that you are in a well-lit and quiet environment, otherwise the webcam may not be able to pick up your eye movements. Please turn off any music you may have on and turn off devices or applications that may distract you during this task (such as your mobile phone, your email application) and please close other websites that you may have open.<br><br>The next pages will appear in fullscreen. <b>Please do not close the fullscreen for the remainder of this experiment.</b> <br><br>Press <b>SPACE</b> to continue.")
     ,
     newCanvas("InstructionsCanvas", "60vw" , "20vh")
         .add(0,0, getText("WelcomeText"))
@@ -241,7 +241,7 @@ newTrial("AudioCheck",
 
 // Experiment instructions:
 newTrial("Instructions",
-    newText("TaskInstructions", "<p>You're all set to start the experiment! You will hear a couple of short sentences while you look at the screen. Feel free to look anywhere, as long as it's on the screen.<br><br>Before each trial, you will see a button in the middle of your screen. Click on this button and look at it for three seconds. The webcam will check whether it is still calibrated. If it is, the trial will automatically start after three seconds. Otherwise, the calibration procedure will be repeated. <br><br>For each trial, your task is to click on the image that the sentence is referring to. <br><br>We’ll first start with four practice trials, so you will know how the experiment works. Then, we will continue to the experiment. This experiment should take roughly 20 minutes to complete, and there will be a break in the middle.<br><br>Please make sure you keep your head as still as possible throughout the experiment. (of course, with the exception of the break)")
+    newText("TaskInstructions", "<p>You're all set to start the experiment! You will hear a couple of short sentences while you look at the screen. Feel free to look anywhere, as long as it's on the screen.<br><br>Before each trial, you will see a button in the middle of your screen. Click on this button and look at it for three seconds. The webcam will check whether it is still calibrated. If it is, the trial will automatically start after three seconds. Otherwise, the calibration procedure will be repeated. <br><br>For each trial, your task is to click on the image that the sentence is referring to. <br><br>We’ll first start with four practice trials, so you will know how the experiment works. Then, we will continue to the experiment. This experiment should take roughly 20 minutes to complete, and there will be a break in the middle.<br><br><b>Please make sure you keep your head as still as possible throughout the experiment.</b> (of course, with the exception of the break)")
     ,
     newCanvas("myCanvas", 800 , 300)
         .settings.add(0,0, getText("TaskInstructions"))
@@ -508,7 +508,7 @@ SendResults()
 newTrial("FinalPage",
     exitFullscreen()
     ,
-    newText("Final","<p>You can download a copy of the information sheet by clicking on this link:<a href='https://pcibex.research-zas.de/ibexfiles/scalar/online_adult_behavior.pdf' target='_blank' > Information sheet</a></p> <p><br> This is the end of the experiment. <strong> Please verify your participation on Prolific by clicking on this link:  </strong> <br> Thank you for your participation!</p>")
+    newText("Final","<p>You can download a copy of the information sheet by clicking on this link:<a href='https://pcibex.research-zas.de/ibexfiles/scalar/online_adult_behavior.pdf' target='_blank' > Information sheet</a></p> <p><br> This is the end of the experiment. <strong> Please verify your participation on Prolific by clicking on this link: <a href='https://app.prolific.co/submissions/complete?cc=581E4C1E' target='_blank'>Click here to confirm your participation on Prolific.</a></strong></p> <p>This is a necessary step in order for you to receive participation credit!</p> <br> Thank you for your participation!</p>")
    ,
     // newText("<p><a href='https://app.prolific.co/submissions/complete?cc=CODE'+ GetURLParameter("id")+"' target='_blank'>Click here to confirm your participation on Prolific.</a></p> <p>This is a necessary step in order for you to receive participation credit!</p>"),
 
