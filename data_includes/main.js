@@ -186,7 +186,7 @@ newTrial("WebcamSetUp",
     // Start calibrating the eye-tracker, allow for up to 3 attempts
     // 50 means that calibration succeeds when 50% of the estimates match the click coordinates
     // Increase the threshold for better accuracy, but more risks of losing participants
-    getEyeTracker("tracker").calibrate(5,3)
+    getEyeTracker("tracker").calibrate(50)
   )
   .noHeader()
   .setOption("hideProgressBar", true)
@@ -272,7 +272,7 @@ Template( "practise.csv" , row =>
 ,
         // Check/recalibrate the tracker before every trial
         getEyeTracker("tracker")
-            .calibrate(5)  // Make sure that the tracker is still calibrated
+            .calibrate(50)  // Make sure that the tracker is still calibrated
             .log()  // log the calibration scores
         ,
         // We will print four character-card pairs of images, one on each quadrant of the page
@@ -388,7 +388,7 @@ Template( "items.csv" , row =>
 ,
         // Check/recalibrate the tracker before every trial
         getEyeTracker("tracker")
-            .calibrate(5)  // Make sure that the tracker is still calibrated
+            .calibrate(50)  // Make sure that the tracker is still calibrated
             .log()  // log the calibration scores
         ,
         // We will print four character-card pairs of images, one on each quadrant of the page
