@@ -120,7 +120,7 @@ newTrial("Welcome",
         .global()
         .log()
     ,
-    newText("WelcomeText", "Welcome and thank you for participating in this experiment.<br><br>The task is very simple and should take roughly 20 minutes to complete (there will be a break in the middle). You will listen to short sentences while four images are presented on your computer screen. After each sentence, you need to click on the image that the sentence is referring to. Feel free to look anywhere, as long as it is on your computer screen. Your webcam will be used to follow your eye movements on the task. <br><br>It is important that you are in a well-lit and quiet environment, otherwise the webcam may not be able to pick up your eye movements. Please turn off any music you may have on and turn off devices or applications that may distract you during this task (such as your mobile phone, your email application) and please close other websites that you may have open.<br><br>The next pages will appear in fullscreen. <b>Please do not close the fullscreen for the remainder of this experiment.</b> <br><br>Press <b>SPACE</b> to continue.")
+    newText("WelcomeText", "Welcome and thank you for participating in this experiment.<br><br>The task is very simple and should take roughly 20 minutes to complete (there will be a break in the middle). You will listen to short sentences while four images are presented on your computer screen. After each sentence, you need to click on the image that the sentence is referring to. Your webcam will be used to follow your eye movements on the task. <br><br>It is important that you are in a well-lit and quiet environment, otherwise the webcam may not be able to pick up your eye movements. Please turn off any music you may have on and turn off devices or applications that may distract you during this task (such as your mobile phone, your email application) and please close other websites that you may have open.<br><br>The next pages will appear in fullscreen. <b>Please do not close the fullscreen for the remainder of this experiment.</b> <br><br>Press <b>SPACE</b> to continue.")
     ,
     newCanvas("InstructionsCanvas", "60vw" , "20vh")
         .add(0,0, getText("WelcomeText"))
@@ -192,7 +192,7 @@ newTrial("AudioSetUp",
 
 // Audio check
 newTrial("AudioCheck",
-    newText("AudioCheckUp", "Now that the audio volume is set, please listen to the audio file presented below. After you listened to the sentence, please type in the sentence you heard in the field that appears.<br><br>Please listen carefully, because <b>you can only listen to the sentence once.</b><br><br> Feel free to move your head if you want to look at your keyboard while typing. ")
+    newText("AudioCheckUp", "Now that the audio volume is set, please listen to the audio file presented below. After you listened to the sentence, please type in the sentence you heard in the field that appears.<br><br>Please listen carefully, because <b>you can only listen to the sentence once.</b>")
     ,
     newCanvas( "myCanvas", "60vw" , "60vh")
         .settings.add(0,0, getText("AudioCheckUp"))
@@ -239,7 +239,7 @@ newTrial("WebcamSetUp",
 
 // Experiment instructions:
 newTrial("Instructions",
-    newText("TaskInstructions", "<p>You're all set to start the experiment! You will hear a couple of short sentences while you look at the screen. Feel free to look anywhere, as long as it's on the screen.<br><br>Before each trial, you will see a button in the middle of your screen. Click on this button and look at it for three seconds. The webcam will check whether it is still calibrated. If it is, the trial will automatically start after three seconds. Otherwise, the calibration procedure will be repeated. <br><br>For each trial, your task is to click on the image that the sentence is referring to. <br><br>We’ll first start with four practice trials, so you will know how the experiment works. Then, we will continue to the experiment. This experiment should take roughly 20 minutes to complete, and there will be a break in the middle.<br><br><b>Please make sure you keep your head as still as possible throughout the experiment.</b> (of course, with the exception of the break)")
+    newText("TaskInstructions", "<p>You're all set to start the experiment!<br><br>Before each trial, you will see a button in the middle of your screen. Click on this button and look at it for three seconds. The webcam will check whether it is still calibrated. If it is, the trial will automatically start after three seconds. Otherwise, the calibration procedure will be repeated. <br><br>For each trial, your task is to click on the image that the sentence is referring to. Feel free to look anywhere, as long as it's on the screen. <br><br>We’ll first start with four practice trials, so you will know how the experiment works. Then, we will continue to the experiment. <br><br><b>Please make sure you keep your head as still as possible throughout the experiment.</b> (of course, with the exception of the break)")
     ,
     newCanvas("myCanvas", 800 , 300)
         .settings.add(0,0, getText("TaskInstructions"))
