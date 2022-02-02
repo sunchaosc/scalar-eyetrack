@@ -136,6 +136,7 @@ newTrial("Welcome",
 //Consent text:
 newTrial("Consent",
     newHtml("consent_form", "consent.html")
+        .settings.log()
         .center()
         .cssContainer({"width":"720px"})
         .checkboxWarning("You must consent before continuing.")
