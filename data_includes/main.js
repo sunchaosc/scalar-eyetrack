@@ -227,16 +227,73 @@ newTrial("WebcamSetUp",
     newKey("next", " ")
         .wait( newEyeTracker("tracker").test.ready())
     ,
+    newVar("Failed", "no")
+        .global()
+    ,
     fullscreen()
     ,
     // Start calibrating the eye-tracker, allow for up to 3 attempts
     // 50 means that calibration succeeds when 50% of the estimates match the click coordinates
     // Increase the threshold for better accuracy, but more risks of losing participants
-    getEyeTracker("tracker").calibrate(50)
+    getEyeTracker("tracker")
+         .showFeedback()
+         .calibrate()
+         .test.score(50)
+             .failure(
+                 newText("FailedCalibration1","Unfortunately, the calibration failed. Make sure to look at the button in the centre of the screen for three seconds. <br> Press space to try again! <br> Attempts left: 2")
+                     .print("center at 50%", "middle at 50%")
+                 ,
+                 newKey("next", " ")
+                     .wait()
+                 ,
+                 getText("FailedCalibration1").remove()
+                 ,
+                 getEyeTracker("tracker")
+                     .calibrate()
+                     .test.score(50)
+                         .failure(
+                             newText("FailedCalibration2","Unfortunately, the calibration failed. Make sure to look at the button in the centre of the screen for three seconds. <br> Press space to try again! <br> Attempts left: 1")
+                                 .print("center at 50%", "middle at 50%")
+                             ,
+                             newKey("next", " ")
+                                 .wait()
+                             ,
+                             getText("FailedCalibration2").remove()
+                             ,
+                             getEyeTracker("tracker")
+                                 .calibrate()
+                                 .test.score(50)
+                                     .failure(
+                                     getVar("Failed")
+                                         .set("yes")
+                                     ,
+                                     newTimer(5)
+                                         .start()
+                                         .wait()
+                         )
+                     )
+                 )
   )
   .noHeader()
   .setOption("hideProgressBar", true)
 //
+newTrial("FailedCalibrationLink",
+    getVar("Failed")
+        .test.is("yes")
+        .success(
+            getVar("Subject")
+                .log()
+            ,
+            SendResults()
+            ,
+            newText("FailedCalibration","Unfortunately, the calibration failed again. It seems that the webcam is not able to pick up your eye movements. Please return your submission and message this completion code to the researcher on Prolific. You will earn a partial payment of 0.4. </p> </strong> <br> Thank you for your participation!")
+                .print("Center at 50%", "Middle at 50%")
+            ,
+            newButton("waitforever").wait()
+            )
+
+    )
+     .setOption("hideProgressBar", true)
 
 // Experiment instructions:
 newTrial("Instructions",
