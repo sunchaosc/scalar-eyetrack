@@ -14,7 +14,7 @@ PreloadZip("https://pcibex.research-zas.de/ibexfiles/scalar/Audio.zip")
 EyeTrackerURL("https://pcibex.research-zas.de/eyegaze/script.php")
 
 // Sequence of the elements in the experiment
-Sequence("Preload","WebcamCheck", "ChromeCheck", "L1Check", "Welcome", "Consent",  "AudioSetUp", "AudioCheck", "WebcamSetUp", "FailedCalibrationLink"， "Instructions", "PractiseSession", "EndOfPractise", "Counter", subsequence(repeat(randomize("Main"), 16), "BlinkBreak"), "QuestionnairePage", "Send", "FinalPage")
+Sequence("Preload","WebcamCheck", "ChromeCheck", "L1Check", "Welcome", "Consent",  "AudioSetUp", "AudioCheck", "WebcamSetUp", "FailedCalibrationLink", "Instructions", "PractiseSession", "EndOfPractise", "Counter", subsequence(repeat(randomize("Main"), 16), "BlinkBreak"), "QuestionnairePage", "Send", "FinalPage")
 //
 
 // Wait if the resources have not finished preloading by the time the tracker is calibrated
@@ -230,7 +230,7 @@ newTrial("WebcamSetUp",
         .wait( newEyeTracker("tracker").test.ready())
     ,
     getCanvas("InstructionsCanvas")
-    .remove()
+      .remove()
     ,
     newVar("Failed", "no")
         .global()
