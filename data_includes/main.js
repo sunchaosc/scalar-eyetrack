@@ -14,7 +14,7 @@ PreloadZip("https://pcibex.research-zas.de/ibexfiles/scalar/Audio.zip")
 EyeTrackerURL("https://pcibex.research-zas.de/eyegaze/script.php")
 
 // Sequence of the elements in the experiment
-Sequence("Preload","WebcamCheck", "ChromeCheck", "L1Check", "Welcome", "Consent",  "AudioSetUp", "AudioCheck", "WebcamSetUp", "Instructions", "PractiseSession", "EndOfPractise", "Counter", subsequence(repeat(randomize("Main"), 16), "BlinkBreak"), "QuestionnairePage", "Send", "FinalPage")
+Sequence("Preload","WebcamCheck", "ChromeCheck", "L1Check", "Welcome", "Consent",  "AudioSetUp", "AudioCheck", "WebcamSetUp", "FailedCalibrationLink"， "Instructions", "PractiseSession", "EndOfPractise", "Counter", subsequence(repeat(randomize("Main"), 16), "BlinkBreak"), "QuestionnairePage", "Send", "FinalPage")
 //
 
 // Wait if the resources have not finished preloading by the time the tracker is calibrated
@@ -221,11 +221,16 @@ newTrial("AudioCheck",
 // Set up the webcam: we do a first calibration here---meanwhile, the resources are preloading
 newTrial("WebcamSetUp",
     newText("WebcamSetUpText", "Now that you have set up audio. let’s set up and calibrated the webcam. The webcam will be set up in a simple calibration procedure. During this calibration, you will see a video of your webcam stream. Again, we will not save any recordings of this video stream. Please make sure your face is fully visible, and that you sit centrally in front of your webcam.<br><br>You can start the calibration procedure by clicking on the start button that will appear on the middle of the screen.<br><br>In the calibration procedure, you will see eight buttons on your screen. Please click on all these buttons and follow your cursor closely with your eyes. Once you've clicked on all buttons, a new button will appear in the middle of the screen. Please click on this button and <b>look at it for three seconds</b> so the algorithm can check whether it's well calibrated.<br><br>In case calibration fails, the last step will be repeated. <br><br> Press <b>SPACE</b> to continue.")
-        .center()
-        .print()
     ,
+    newCanvas("InstructionsCanvas", "60vw" , "20vh")
+      .add(0,0, getText("WebcamSetUpText"))
+      .print("center at 50%", "top at 25%")
+      ,
     newKey("next", " ")
         .wait( newEyeTracker("tracker").test.ready())
+    ,
+    getCanvas("InstructionsCanvas")
+    .remove()
     ,
     newVar("Failed", "no")
         .global()
@@ -286,7 +291,7 @@ newTrial("FailedCalibrationLink",
             ,
             SendResults()
             ,
-            newText("FailedCalibration","Unfortunately, the calibration failed again. It seems that the webcam is not able to pick up your eye movements. Please return your submission and message this completion code to the researcher on Prolific. You will earn a partial payment of 0.4. </p> </strong> <br> Thank you for your participation!")
+            newText("FailedCalibration","Unfortunately, the calibration failed again. It seems that the webcam is not able to pick up your eye movements. Please return your submission and message this completion code <b>581E4C1E</b> to the researcher on Prolific. You will earn a partial payment of 0.4. </p> </strong> <br> Thank you for your participation!")
                 .print("Center at 50%", "Middle at 50%")
             ,
             newButton("waitforever").wait()
