@@ -292,7 +292,10 @@ newTrial("FailedCalibrationLink",
             SendResults()
             ,
             newText("FailedCalibration","Unfortunately, the calibration failed again. It seems that the webcam is not able to pick up your eye movements. Please return your submission and message this completion code <b>581E4C1E</b> to the researcher on Prolific. You will earn a partial payment of 0.4. </p> </strong> <br> Thank you for your participation!")
-                .print("Center at 50%", "Middle at 50%")
+            ,
+            newCanvas("InstructionsCanvas", "60vw" , "20vh")
+              .add(0,0, getText("FailedCalibration"))
+              .print("center at 50%", "top at 50%")
             ,
             newButton("waitforever").wait()
             )
