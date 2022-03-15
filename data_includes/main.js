@@ -291,7 +291,7 @@ newTrial("FailedCalibrationLink",
             ,
             SendResults()
             ,
-            newText("FailedCalibration","Unfortunately, the calibration failed again. It seems that the webcam is not able to pick up your eye movements. Please return your submission and message this completion code <b>581E4C1E</b> to the researcher on Prolific. You will earn a partial payment of 0.4. </p> </strong> <br> Thank you for your participation!")
+            newText("FailedCalibration","Unfortunately, the calibration failed again. It seems that the webcam is not able to pick up your eye movements. Please return your submission from the 'Submissions page', by selecting the red circular arrow to 'Return + cancel reward’. We would love to send you a partial payment. Please meassage 'calibaration failed' to the researcher via Polific. You will then earn a partial payment of 0.4 GBP. </p> </strong> <br> Thank you for your participation!")
             ,
             newCanvas("InstructionsCanvas", "60vw" , "20vh")
               .add(0,0, getText("FailedCalibration"))
